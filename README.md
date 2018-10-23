@@ -29,7 +29,7 @@
 - Navigate to the new folder.
   - `cd projects`
   
-*Open github and go to the repository page
+*Open github and go to the repository page*
 
 - Find the green `Clone or download` button located at the top right of the menu on the main page. Copy that link.
 
