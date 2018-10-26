@@ -1,9 +1,11 @@
 package com;
 
-        import java.util.Arrays;
-        import java.util.Scanner;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class Main {
+
+    private static final int CREATE_CHARACTER = 1;
 
     public static void main(String[] args) {
 
@@ -12,18 +14,38 @@ public class Main {
 
     }
 
+    /**
+     * This won't route back to the menu again because it's separated into an if - else; you need a loop somewhere.
+     *
+     * I would recommend a variable, appIsRunning. Put the whole thing into a while loop (with appIsRunning as the condition).
+     * At the end of each if else, print a message asking the user if they want to continue, yes / no. If yes, the loop will
+     * repeat, and they will be taken back to the menu. If no, then set appIsRunning to false and the loop will break.
+     * */
     public static void readInput(Scanner in) {
 
+        /**
+         * you only need one scanner here (which you don't even have to declare, since you're passing it in from the caller)
+         * */
 
-        // write your code here
         Scanner character = new Scanner(System.in);
         Scanner phrase = new Scanner(System.in);
         Scanner selection = new Scanner(System.in);
 
-        System.out.println("Select " + 1 + " to create character or " + 2 + " to view phrases: ");
+        /**
+         * To somebody reading the code, the numbers 1 and 2 are difficult to decipher out of context. In addition,
+         * if you ever needed to change one of these numbers (say, 3 becomes phrases), you'll have to go through
+         * and change it in several places.
+         *
+         * I would recommend a class level constant. That way, the code is more flexible and easier to read.
+         *
+         * I recommend a little research on constants in Java (purpose, syntax, etc)
+         *
+         * I took care of 1 for you to show you how to do it
+         * */
+        System.out.println("Select " + CREATE_CHARACTER + " to create character or " + 2 + " to view phrases: ");
         int select = selection.nextInt();
 
-        if (select == 1) {
+        if (select == CREATE_CHARACTER) {
 
             int a;
             int b;
