@@ -45,7 +45,7 @@ public class Main {
         System.out.println("Select " + CREATE_CHARACTER + " to create character or " + VIEW_PHRASES + " to view phrases: ");
         int select = selection.nextInt();
         boolean appIsRunning = true;
-
+        String answer = selection.nextLine();
         while (appIsRunning) {
             if (select == CREATE_CHARACTER) {
 
@@ -76,48 +76,17 @@ public class Main {
 
                     }
                 }
-                
-            }
-        }
 
+            } else {
+
+                System.out.println("Would you like to continue? Enter yes or no. ");
+                if (answer != "yes") {
+
+                    appIsRunning = false;
+                }
+
+            }
+
+        }
     }
 }
-
-
-//        } else if (select == 2) {
-//            int a;
-//            int b;
-//
-//            System.out.println("You have to add characters first. How many would you like to add? ");
-//            a = character.nextInt();
-//            character.nextLine();
-//            String[] s = new String[a];
-//
-//            for (int i = 0; i < a; i++) {
-//                System.out.println("Enter a character name: ");
-//                s[i] = character.nextLine();
-//
-//                System.out.println("How many phrases for this character? ");
-//                b = phrase.nextInt();
-//                phrase.nextLine();
-//                String[] p = new String[b];
-//
-//                for (int x = 0; x < b; x++) {
-//                    System.out.println("Enter phrases for individual: ");
-//                    p[x] = phrase.nextLine();
-//                }
-//
-//                System.out.println(Arrays.toString(s));
-//                System.out.println(Arrays.toString(p));
-//                System.out.println("Very good, lets return to the beginning \n");
-//
-//                readInput(in);
-//            }
-//
-//        } else {
-//
-//            System.out.println("Keep working");
-//            readInput(in);
-//        }
-//    }
-//}
