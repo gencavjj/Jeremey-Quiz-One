@@ -76,17 +76,15 @@ public class Main {
 
                     }
                 }
-
-            } else {
-
                 System.out.println("Would you like to continue? Enter yes or no. ");
-                if (answer != "yes") {
-
+                if (answer.equals("yes")) {
                     appIsRunning = false;
+                } else {
+                    appIsRunning = true;
+
+
                 }
-
             }
-
         }
     }
 }
