@@ -52,7 +52,6 @@ public class Main {
                 int a;
                 int b;
 
-
                 System.out.println("How many characters would you like to add? ");
                 a = character.nextInt();
                 character.nextLine();
