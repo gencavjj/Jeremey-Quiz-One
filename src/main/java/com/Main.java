@@ -1,11 +1,11 @@
 package com;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
 
     private static final int CREATE_CHARACTER = 1;
+    private static final int VIEW_PHRASES = 2;
 
     public static void main(String[] args) {
 
@@ -16,11 +16,11 @@ public class Main {
 
     /**
      * This won't route back to the menu again because it's separated into an if - else; you need a loop somewhere.
-     *
+     * <p>
      * I would recommend a variable, appIsRunning. Put the whole thing into a while loop (with appIsRunning as the condition).
      * At the end of each if else, print a message asking the user if they want to continue, yes / no. If yes, the loop will
      * repeat, and they will be taken back to the menu. If no, then set appIsRunning to false and the loop will break.
-     * */
+     */
     public static void readInput(Scanner in) {
 
         /**
@@ -42,76 +42,48 @@ public class Main {
          *
          * I took care of 1 for you to show you how to do it
          * */
-        System.out.println("Select " + CREATE_CHARACTER + " to create character or " + 2 + " to view phrases: ");
+        System.out.println("Select " + CREATE_CHARACTER + " to create character or " + VIEW_PHRASES + " to view phrases: ");
         int select = selection.nextInt();
+        boolean appIsRunning = true;
+        String answer = selection.nextLine();
+        while (appIsRunning) {
+            if (select == CREATE_CHARACTER) {
 
-        if (select == CREATE_CHARACTER) {
+                int a;
+                int b;
 
-            int a;
-            int b;
+                System.out.println("How many characters would you like to add? ");
+                a = character.nextInt();
+                character.nextLine();
+                String[] s = new String[a];
+
+                for (int i = 0; i < a; i++) {
+                    System.out.println("Enter a character name: ");
+                    s[i] = character.nextLine();
+
+                    System.out.println("How many phrases for this character? ");
+                    b = phrase.nextInt();
+                    phrase.nextLine();
+                    String[] p = new String[b];
+
+                    for (int x = 0; x < b; x++) {
+                        System.out.println("Enter phrases for individual: ");
+                        p[x] = phrase.nextLine();
+
+                        System.out.println(s[i]);
+                        System.out.println(p[x]);
+
+                    }
+                }
+                System.out.println("Would you like to continue? Enter yes or no. ");
+                if (answer.equals("yes")) {
+                    appIsRunning = false;
+                } else {
+                    appIsRunning = true;
 
 
-            System.out.println("How many characters would you like to add? ");
-            a = character.nextInt();
-            character.nextLine();
-            String[] s = new String[a];
-
-            for (int i = 0; i < a; i++) {
-                System.out.println("Enter a character name: ");
-                s[i] = character.nextLine();
-
-                System.out.println("How many phrases for this character? ");
-                b = phrase.nextInt();
-                phrase.nextLine();
-                String[] p = new String[b];
-
-                for (int x = 0; x < b; x++) {
-                    System.out.println("Enter phrases for individual: ");
-                    p[x] = phrase.nextLine();
-
-                    //System.out.println(Arrays.toString(s));
-                    //System.out.println(Arrays.toString(p));
-                    System.out.println("Very good, lets return to the beginning \n");
-                    System.out.println(s[i]);
-                    System.out.println(p[x]);
-                    //readInput(in);
                 }
             }
-
-        } else if (select == 2) {
-            int a;
-            int b;
-
-            System.out.println("You have to add characters first. How many would you like to add? ");
-            a = character.nextInt();
-            character.nextLine();
-            String[] s = new String[a];
-
-            for (int i = 0; i < a; i++) {
-                System.out.println("Enter a character name: ");
-                s[i] = character.nextLine();
-
-                System.out.println("How many phrases for this character? ");
-                b = phrase.nextInt();
-                phrase.nextLine();
-                String[] p = new String[b];
-
-                for (int x = 0; x < b; x++) {
-                    System.out.println("Enter phrases for individual: ");
-                    p[x] = phrase.nextLine();
-                }
-
-                System.out.println(Arrays.toString(s));
-                System.out.println(Arrays.toString(p));
-                System.out.println("Very good, lets return to the beginning \n");
-
-                readInput(in);
-            }
-
-        } else {
-
-            System.out.println("Keep working");
-            readInput(in);
         }
     }
 }
