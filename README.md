@@ -1,4 +1,4 @@
-# Jeremey-Quiz-One
+# Jeremy-Quiz-One
 
 ### As a user, I should begin at a menu.
   - The menu will offer two choices, *create a character* and *view catch phrases*.
